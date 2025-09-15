@@ -1,0 +1,34 @@
+package ticketingsystem;
+import java.util.Scanner;
+public class ATM {
+	private int pin=4747;
+	double balance=10000.56;
+	public boolean checkpin(int enteredpin) {
+		return enteredpin==pin;
+	}
+	public void withdrawlmoney(double amount) {
+		if(amount<=balance) {
+			balance-=amount;
+			System.out.println("Appan kasa selavu panran tharuthala meethi vachiko!"+" "+balance);
+			
+		}
+		else {
+			System.out.println("Vanta atikitu kasu illama!");
+		}
+	}
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	ATM ob=new ATM();
+	System.out.println("kadavu solai payanpaduthavum ");
+	int userpin=sc.nextInt();
+	if(ob.checkpin (userpin)) {
+		System.out.println("Evlo daa venum");
+		double amt=sc.nextDouble();
+		ob.withdrawlmoney(amt);
+	}
+	else {
+		System.out.println("Enna match Enna team uhh ne theriyama poi veetla ketu va parathesi");
+	}
+	sc.close();
+}
+}
